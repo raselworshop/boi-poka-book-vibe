@@ -7,5 +7,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-surge live link: [https://upbeat-toothpaste.surge.sh/]
-Netlify live link: [https://deft-brioche-99c1bb.netlify.app/]
+Live link:[Surge](https://squalid-able.surge.sh/)
+
+Live link:[Netlify](https://inquisitive-profiterole-f6452c.netlify.app/)
