@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 
 const getStoredReadList=()=>{
     // read-list
@@ -14,10 +15,13 @@ const addToStoredReadList =(id)=>{
     if(storedReadList.includes(id)){
         // already exist; don't add it;
         console.log(id,'Book exist')
+        toast('Already You Added This Book!!')
     }else{
         storedReadList.push(id);
         const storedListSet = JSON.stringify(storedReadList);
         localStorage.setItem('read-list', storedListSet)
+        //ideally not the perfect trigger toast from here, but component,
+        toast('This Book Has been added to Read List')
     }
 } 
-export {addToStoredReadList}
+export {addToStoredReadList, getStoredReadList}
