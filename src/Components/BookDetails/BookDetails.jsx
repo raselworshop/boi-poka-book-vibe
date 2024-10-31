@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredReadList } from "./Utility/addToDB";
+import { addToWishListStored } from "./Utility/addToWishListDB";
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -9,9 +11,19 @@ const BookDetails = () => {
     const book = data.find(book => book.bookId === id);
     const { bookId: caurrentBookId, bookName, author, image, category, totalPages, rating, tags, publisher, yearOfPublishing, review } = book;
 
-    const handleMarkAsRead=()=>{
-
-    })
+    const handleMarkAsRead=(id)=>{
+        /**
+         * 1. need to understand what to store or save: => bookId ;
+         * 2. where to store: database or localStorage
+         * 3.Array, collection, list :
+         * 4. check: if the book is already exist in the ReadList,
+         * 5. if not, then need to add the book at ReadList,
+         */
+        addToStoredReadList(id)
+    }
+    const handleWishListAdd=(id)=>{
+        addToWishListStored(id)
+    }
 
     // console.log(data, book)
     return (
@@ -47,8 +59,8 @@ const BookDetails = () => {
                         <p className="flex items-center justify-between">Year of Publishing: <span className="text-left font-extrabold text-xl">{yearOfPublishing}</span></p>
                         <p className="flex items-center justify-between">Rating: <span className="text-left font-extrabold text-xl">{rating}</span></p>
                     </div>
-                    <button onClick={handleMarkAsRead} className="btn mr-5 btn-outline btn-accent text-white">Mark as Read</button>
-                    <button className="btn btn-active btn-accent text-white">Add To Wishlist</button>
+                    <button onClick={()=>handleMarkAsRead(bookId)} className="btn mr-5 btn-outline btn-accent text-white">Mark as Read</button>
+                    <button onClick={()=>handleWishListAdd(id)} className="btn btn-active btn-accent text-white">Add To Wishlist</button>
                 </div>
             </div>
         </div>
